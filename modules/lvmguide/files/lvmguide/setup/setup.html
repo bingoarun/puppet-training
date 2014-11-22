@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Setup</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+    <div id="page" class="page">
+        <div id="site-header" role="banner">
+    <div class="header-wrapper">
+        <div class"region region-header">
+            <div id="block-boxes-test" class="block block-boxes block-boxes simple logo block-odd">
+                <div class="content">
+                    <a href="/">
+                        <img src="/assets/Puppet-Labs-Logo.png">
+                    </a>
+                </div>
+            </div>
+            <div id="block-menu_block-2" class="block block-menu-block header-primary-menu block-even">
+                <div class="content">
+                    <div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1">
+                        <ul class="menu">
+                            <li>
+                                <a href="/index.html">
+                                    Quests
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/glossary.html">
+                                    Glossary
+                                </a>
+                            <li>
+                                <a href="https://puppetlabs.com/learn" target="_blank">
+                                    Learning Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://docs.puppetlabs.com" target="_blank">
+                                    Puppet Docs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="main" class="clearfix" role-"main">
+        <aside id="sidebar-first" class="column sidebar first" role="complementary">
+    <div id="sidebar-first-inner" class="inner">
+        <div class="content">
+            <h2>Quests</h2>
+            <div class="menu-block-wrapper menu-block-7 menu-name-main-menu parent-mlid-0 meni-level-2">
+                <ul class="menu">
+                    
+                        
+                            <li>
+                                <a href="/index.html">Welcome</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/power_of_puppet.html">Power of Puppet</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/resources.html">Resources</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/manifest_quest.html">Manifests</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/variables.html">Variables</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/conditions_quest.html">Conditional Statements</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/resource_ordering.html">Ordering</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/classes_quest.html">Classes</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/modules_quest.html">Modules</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/puppet_module_tool_quest.html">Puppet Module Tool</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/afterword.html">Afterword</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/troubleshooting.html">Troubleshooting</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/glossary.html">Glossary</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+
+
+            <div id="content" class="clearfix" role="main">
+                <h1>Learning VM Setup</h1>
+
+<a id=""><h2>About the Learning Virtual Machine</h2></a>
+
+<p>The Learning Virtual Machine (VM) is a sandbox environment equipped with everything you'll need to get started learning Puppet and Puppet Enterprise (PE). Because we believe exploration and playfulness are key to successful learning, we've done our best to make getting started with Puppet a fun and frictionless process. The VM is powered by CentOS Linux and for your convenience, we've pre-installed Puppet Enterprise (PE) along with everything you'll need to put it into action. Before you get started, however, we'll walk you through a few steps to get the VM configured and running.</p>
+
+<p>The Learning VM comes in two flavors. You downloaded this guide with either a VMware (.vmx) file or an Open Virtualization Format (.ovf) file. The .vmx version works with VMware Player or VMware Workstation on Linux and Windows based machines, and VMware Fusion for Mac. The .ovf file is suitable for Oracle's Virtualbox as well as several other virtualization players that support this format.</p>
+
+<p>We've included instructions below for VMware Fusion, VMware Player, and Virtualbox. If you run into issues getting the Learning VM set up, feel free to contact us at learningvm@puppetlabs.com, and we'll do our best to help out.</p>
+
+<a id=""><h2>Getting started with the Learning VM</h2></a>
+
+<p>If you haven't already downloaded VMware Player, VMware Fusion, or Oracle Virtualbox, please see the links below:</p>
+
+<ul>
+<li><a href="http://www.vmware.com/go/downloadplayer">VMWare Player</a></li>
+<li><a href="http://www.vmware.com/go/downloadfusion">VMWare Fusion</a></li>
+<li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></li>
+</ul><p>You'll also need an SSH client to interact with the Learning VM over a Secure Shell (SSH) connection. This will be more comfortable than interacting with the virtualization software directly. If you're using Mac OS, you will be able to run SSH by way of the default Terminal application or a third party application like <a href="http://iterm2.com/">iTerm</a>. If you are on a Windows OS, we recommend <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">PuTTY</a>, a free SSH client for Windows.</p>
+
+<p>Once you have an up-to-date virtualization application and the means to SSH to the Learning VM you're ready to configure the Learning VM itself.</p>
+
+<p>If you're reading this guide, you've already extracted the .zip file that contains the Learning VM. Keep that .zip file around in case you want to create a fresh instance of the Learning VM without having the re-do the download.</p>
+
+<a id=""><h2>VM Setup</h2></a>
+
+<p>Start by launching your virtualization software. (Don't be tempted by any dialogues or wizards that pop up the first time you open the software. These will walk you through creating a <em>new</em> virtual machine, and will mislead you if you're trying to open the <em>existing</em> Learning VM file.) </p>
+
+<p>Depending on what virtualization software you're using, there are some slight variations in how you'll open Learning VM file.</p>
+
+<ul>
+<li><p>In <strong>VMware Player</strong> there will be an <em>Open a Virtual Machine</em> option on the Welcome screen.  You can also select <em>File &gt; Open...</em> from the <em>Player</em> menu in the top left.</p></li>
+<li><p>For <strong>VMWare Fusion</strong>,  select <em>File &gt; Open...</em> from the menu bar.</p></li>
+<li><p>For <strong>VirtualBox</strong>, select <em>File &gt; Import Appliance...</em> from the menu bar.</p></li>
+<li><p>If you're using different virtualization software, just be sure to <em>open</em> or <em>import</em>, rather than <em>create new</em>.</p></li>
+</ul><p>Don't launch the VM just yet. There are a few configuration steps that you should complete before launching the Learning VM for the first time. (If you skipped ahead and already launched the VM, shut it down by logging in with the credentials <code>root</code> and <code>puppet</code> and entering the command <code>shutdown -P now</code>. And if you run into errors, remember that you can simply delete the VM and create another by unpacking the .zip archive and following the instructions above.)</p>
+
+<p>With the Learning VM selected in the library or manager window, open the <strong>Settings</strong> panel. There are a few things to adjust here.</p>
+
+<p>First, in under <strong>Network</strong> or <strong>Network Adapter</strong>, confirm that the <strong>Network Adapter</strong> is enabled, and configure it to use <strong>Bridged</strong> networking.</p>
+
+<p>Next, you'll need to increase the memory allocation and processors to the VM to ensure that it has the resources neccessary to run smoothly. These options are under <strong>System</strong> in VirtualBox and <strong>Processors &amp; Memory</strong> in VMware Fusion. Allocate 4 GB of memory (4096 MB) and two processor cores. You can run the Learning VM with less memory and fewer processor cores, but you may encounter performance issues.</p>
+
+<p>Now that your settings are configured, select <strong>Start</strong> or <strong>Power On</strong> to boot up the VM.</p>
+
+<div class="lvm-inline-aside">
+<h4>Input Capture </h4>
+<p></p>
+<p>Virtualization software uses mouse and keyboard capture to 'own' these devices and communicate input to the guest operating system. The keystroke to release the mouse and keyboard will be displayed at the top right of the VM window.</p>
+</div>
+
+<a id=""><h2>Next Steps</h2></a>
+
+<p>Once the VM is booted, you may have to hit <code>enter</code> to see to the login prompt. Log in using the following credentials:  </p>
+
+<ul>
+<li>username: <strong>root</strong>
+</li>
+<li>password: <strong>puppet</strong>
+</li>
+</ul><p>All you'll want to do for now is get the Learning VM's IP address. Use the Facter tool bundled with Puppet Enterprise tool to find it.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">facter ipaddress
+</code></pre></div>
+<p>Make a note of the IP address displayed. You'll need it to open an SSH connection to the Learning VM and in order to access to the PE Console later.</p>
+
+<p>For the Learning VM's quest tool to work smoothly, you'll need to log out before starting your SSH session. The file that tracks your command line history will only be created after you log out for the first time. Enter the command:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">exit
+</code></pre></div>
+<p>Now that you have the IP address, open an SSH connection to the Learning VM. </p>
+
+<p>On a Linux system or a Mac, you can open a Terminal application and run the following command, replacing <code>&lt;ip-address&gt;</code> with the IP address of your Learning VM:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh root@&lt;ip-address&gt;
+</code></pre></div>
+<p>If you are on a Windows system, use an SSH client. We recommend <a href="http://www.chiark.greenend.org.uk/%7Esgtatham/putty/download.html">Putty</a>. Enter the IP address into the <em>Hostname</em> textbox and click <em>Open</em> to start your session.</p>
+
+<p>Use the same credentials:</p>
+
+<ul>
+<li>username: <strong>root</strong><br>
+</li>
+<li>password: <strong>puppet</strong>
+</li>
+</ul><p>Now that the Learning VM is configured and you're connected, you're all set to take on your first quest! We hope you have fun learning Puppet!</p>
+
+<p>In addition to the VM, the following resources may be handy in your journey to learn Puppet:</p>
+
+<ul>
+<li><a href="http://groups.google.com/group/puppet-users">Puppet users group</a></li>
+<li><a href="http://ask.puppetlabs.com">Puppet Ask - Q&amp;A site</a></li>
+<li>#puppet IRC channel on irc.freenode.net</li>
+<li><a href="https://tickets.puppetlabs.com/browse/LEARNVM">Learning VM Issue Tracker</a></li>
+<li>You can also email us at <a href="mailto:learningvm@puppetlabs.com">learningvm@puppetlabs.com</a>
+</li>
+</ul>
+            </div>
+        </div>
+        <div id="footer">
+</div>
+       
+    </div>
+    </body>
+</html>

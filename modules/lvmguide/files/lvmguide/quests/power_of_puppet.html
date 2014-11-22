@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Power of Puppet</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+    <div id="page" class="page">
+        <div id="site-header" role="banner">
+    <div class="header-wrapper">
+        <div class"region region-header">
+            <div id="block-boxes-test" class="block block-boxes block-boxes simple logo block-odd">
+                <div class="content">
+                    <a href="/">
+                        <img src="/assets/Puppet-Labs-Logo.png">
+                    </a>
+                </div>
+            </div>
+            <div id="block-menu_block-2" class="block block-menu-block header-primary-menu block-even">
+                <div class="content">
+                    <div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1">
+                        <ul class="menu">
+                            <li>
+                                <a href="/index.html">
+                                    Quests
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/glossary.html">
+                                    Glossary
+                                </a>
+                            <li>
+                                <a href="https://puppetlabs.com/learn" target="_blank">
+                                    Learning Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://docs.puppetlabs.com" target="_blank">
+                                    Puppet Docs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="main" class="clearfix" role-"main">
+        <aside id="sidebar-first" class="column sidebar first" role="complementary">
+    <div id="sidebar-first-inner" class="inner">
+        <div class="content">
+            <h2>Quests</h2>
+            <div class="menu-block-wrapper menu-block-7 menu-name-main-menu parent-mlid-0 meni-level-2">
+                <ul class="menu">
+                    
+                        
+                            <li>
+                                <a href="/index.html">Welcome</a>
+                            </li>
+                        
+                    
+                        
+                            <li class="active">
+                                <a href="/quests/power_of_puppet.html" class = "active">Power of Puppet</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/resources.html">Resources</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/manifest_quest.html">Manifests</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/variables.html">Variables</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/conditions_quest.html">Conditional Statements</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/resource_ordering.html">Ordering</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/classes_quest.html">Classes</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/modules_quest.html">Modules</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/puppet_module_tool_quest.html">Puppet Module Tool</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/afterword.html">Afterword</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/troubleshooting.html">Troubleshooting</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/glossary.html">Glossary</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+
+
+            <div id="content" class="clearfix" role="main">
+                <h1>The Power of Puppet</h1>
+
+<h3>Prerequisites</h3>
+
+<ul>
+<li>Welcome Quest</li>
+</ul><a id=""><h2>Quest Objectives</h2></a>
+
+<ul>
+<li>Using existing Puppet modules, configure the Learning VM to serve a web version of the Quest Guide.</li>
+<li>Learn how the Puppet Enterprise (PE) Console's node classifier can manage the Learning VM's configuration.</li>
+</ul><a id=""><h2>Getting Started</h2></a>
+
+<p>In this quest you will use the Puppet Enterprise (PE) Console in conjunction with existing modules to cut away much of the complexity of a common configuration task.  You'll configure the Learning VM to serve the content of this Quest Guide as a locally accessible static HTML website. We'll show you how you can Puppet and freely available Puppet modules to fully automate the process instead of writing code or using standard terminal commands.</p>
+
+<p>As you go through this quest, remember that while Puppet can simplify many tasks, it's a powerful and complex tool. There's a lot to learn if you want to use it to its full potential. We will explain concepts as needed to complete and understand each task in this quest, but sometimes we'll hold off on a fuller explanation of some detail until a later quest. Don't worry if you don't feel like you're getting the whole story right away; keep at it and we'll get there when the time is right!</p>
+
+<p>When you're ready to get started, type the following command:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">quest --start power 
+</code></pre></div>
+<a id=""><h2>Forging Ahead</h2></a>
+
+<p>A <strong>module</strong> is a bundle of Puppet code packaged along with the other files and data you need manage some aspect of a system. Need to set up NTP? There's a module for that. Manage system users? That too. But likely you'll want to do both of these things and more. Modules let you mix and match reusable bits of Puppet code to make achieving your desired configuration as painless as possible. Modules are designed to be, well, <em>modular</em>.</p>
+
+<p>But where do these modules come from? The <a href="http://forge.puppetlabs.com">Puppet Forge</a> is a public repository of modules contributed by members of the Puppet community, including many written and maintained by Puppet Labs employees and partners. The Forge also includes a list PE Supported Modules, which Puppet Labs has rigorously tested and is committed to supporting and maintaining through their lifecycle.</p>
+
+<div class="lvm-task-number"><p>Task 1 :</p></div>
+
+<p>To get started setting up the Quest Guide website, you'll need to download and install Puppet Labs' Apache module from the Forge. (If you're offline or behind a firewall, check the aside below for instructions on using the cached version of the module.) </p>
+
+<p>The <code>apache</code> module gives you everything you need to automate installing, configuring, and starting an Apache webserver. In your terminal, enter the following command to install the module:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">puppet module install puppetlabs-apache
+</code></pre></div>
+<div class="lvm-inline-aside">
+<h4>Offline? </h4>
+<p></p>
+<p>If you don't have internet access, run the following terminal commands to used a cached version of the module:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">puppet module install /usr/src/forge/puppetlabs-apache-*.tar.gz --ignore-dependencies  
+</code></pre></div>
+</div>
+
+<p>This command tells Puppet to download the Puppet Labs <code>apache</code> module from the Forge and place it in the directory specified as Puppet's <em>modulepath</em>. The modulepath defines the directory on your Puppet Master where Puppet saves modules you install and accesses modules you already have installed. For Puppet Enterprise, this defaults to <code>/etc/puppetlabs/puppet/modules/</code>.</p>
+
+<p>Great job! You've just installed your first module from the Forge.</p>
+
+<p>To help set up the Quest Guide website, we've also prepared an <code>lvmguide</code> module. It's already in the VM's module path, so there's no need to fetch it from the Forge. This small <code>lvmguide</code> module draws on some resources from the Apache module and uses some code and content of its own to finish the configuration of the Quest Guide website. </p>
+
+<h3>The lvmguide and Apache modules</h3>
+
+<p>Before using these modules, you should know a little more about how they work. </p>
+
+<p>The <code>lvmguide</code> <em>module</em> includes Puppet code that defines an <code>lvmguide</code> <em>class</em>. In Puppet, a <em>class</em> is simply a named block of Puppet code organized in a way that defines a set of associated system resources. A class might install a package, customize an associated configuration file for that package, and start a service provided by that package. These are related and interdependent processes, so it makes sense to organize them into a single configurable unit: a class.</p>
+
+<div class="lvm-callout lvm-warning"><p>
+Despite some superficial similarities, Puppet's classes aren't like the classes in Object Oriented programming. You'll just get confused if you think of them this way!
+</p></div>
+
+<p>While a module can include many classes, it will always have a main class that shares the name of the module. This class serves as the access point for the module's functionality and calls on other classes within the module or from pre-requisite modules as needed.</p>
+
+<a id=""><h2>Put your Modules to Use</h2></a>
+
+<p>In order to configure the Learning VM to serve you the Quest Guide website, you'll need to <em>classify</em> it with the <code>lvmguide</code> class. Classification tells Puppet which classes to apply to which machines in your infrastructure. Though there are a few different ways to classify nodes, we'll be using the PE Console's node classifier for this quest.</p>
+
+<p>To access the PE Console you'll need the Learning VM's IP address. Remember, you can use the <code>facter</code> tool packaged with PE.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">facter ipaddress
+</code></pre></div>
+<div class="lvm-callout lvm-tip"><p>
+You can see a list of all the system facts accessible through facter by running the `facter -p` command.
+</p></div>
+
+<p>Open a web browser on your host machine and go to <code>https://&lt;ip-address&gt;</code>, where <code>&lt;ip-address&gt;</code> is the Learning VM's IP address. (Be sure to include the <code>s</code> in <code>https</code>)</p>
+
+<p>If your browser gives you a security notice because the certificate is self-signed, go ahead and click accept to continue to the PE Console.</p>
+
+<p>When prompted, use the following credentials to log in:</p>
+
+<p><strong>Username:</strong> puppet@example.com<br><strong>Password:</strong> learningpuppet</p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Login.png"><p>Figure</p>
+</div>
+
+<p>You're in! Now that you have access to the PE Console, we'll go over the steps you'll take to classify the "learning.puppetlabs.vm" node (i.e. the Learning VM) with the <code>lvmguide</code> class.</p>
+
+<h3>Add a Class</h3>
+
+<p>First, you need to add the <code>lvmguide</code> class to the list of classes available to the PE Console.</p>
+
+<p>To do this, click the <strong>Add classes</strong> button on the <strong>Classes</strong> panel. (You may need to scroll to the bottom of the page to find the panel.)</p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Add_Classes.png"><p>Figure</p>
+</div>
+
+<p>Type <em>lvmguide</em> in the "Filter the list below" input box, and check the checkbox by the <em>lvmguide</em> class that appears in the list.</p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_lvmguide_Selected.png"><p>Figure</p>
+</div>
+
+<p>Now click the "Add selected classes" button.  </p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Add_Selected_Classes.png"><p>Figure</p>
+</div>
+
+<p>You should see a verification message at the top of the PE Console and the the <code>lvmguide</code> class will appear in the list of available classes on the left side of the console interface.</p>
+
+<h3>Classify a Node</h3>
+
+<p>Now that the <code>lvmguide</code> class is available, you can use it to classify the node <code>learning.puppetlabs.vm</code>.</p>
+
+<p>Click on the "Nodes" menu item in the navigation menu. (You may need to scroll to the top of the page to see the navigation menu.)</p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Nodes_Menu.png"><p>Figure</p>
+</div>
+
+<p>Click on the <em>learning.puppetlabs.vm</em> node hyperlink. (This should be the only one listed since the Learning VM is the only node you're managing with Puppet Enterprise.)</p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Learn_Node.png"><p>Figure</p>
+</div>
+
+<p>Once you're on the node page for <em>learning.puppetlabs.vm</em>, click the "Edit" button located in the top-right corner of the screen. </p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Edit_Button.png"><p>Figure</p>
+</div>
+
+<p>In the Classes section, type <em>lvmguide</em> in the "add a class" input box  </p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Add_lvmguide_Class.png"><p>Figure</p>
+</div>
+
+<p>Click the "Update" button at the bottom.</p>
+
+<div class="img-wrapper">
+<img src="../assets/PE_Update_Button.png"><p>Figure</p>
+</div>
+
+<p>Excellent! If everything went according to plan, you've successfully classified the <code>learning.puppetlabs.vm</code> node with the <code>lvmguide</code> class.</p>
+
+<h3>Run Puppet</h3>
+
+<p>Now that you have classified the <code>learning.puppetlabs.vm</code> node with the <code>lvmguide</code> class, Puppet knows how the system should be configured. But it won't make any changes until a Puppet run occurs. </p>
+
+<p>The Puppet <code>agent</code> daemon runs in the background on any nodes you manage with Puppet. Every 30 minutes, the Puppet agent daemon requests a <em>catalog</em> from the Puppet Master. The Puppet Master parses all the classes applied to that node and builds the catalog to describes how the node is supposed to be configured. It returns this catalog to the node's Puppet agent, which then applies any changes necessary to bring the node into the line with the state described by the catalog.</p>
+
+<div class="lvm-task-number"><p>Task 3 :</p></div>
+
+<p>Instead of waiting for the Puppet agent to make its scheduled run, use the <code>puppet agent</code> tool to trigger one yourself. In your terminal, type the following command:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">puppet agent --test
+</code></pre></div>
+<p><strong>Please note this may take about a minute to run.</strong> This is about the time it takes for the software packages to be downloaded and installed as needed. After a brief delay, you will see text scroll by in your terminal indicating that Puppet has made all the specified changes to the Learning VM.</p>
+
+<p>Check out the Quest Guide! In your browsers address bar, type the following URL: <code>http://&lt;ip-address&gt;</code>. Though the IP address is the same, using <code>https</code> will load the PE Console, while <code>http</code> will load the Quest Guide as a website.</p>
+
+<p>From this point on you can either follow along with the website or with the PDF, whichever works best for you.</p>
+
+<a id=""><h2>IP Troubleshooting</h2></a>
+
+<p>The website for the quest guide will remain accessible for as long as the VM's IP address remains the same. If you move your computer or laptop to a different network, or if you suspend your laptop and resumed work on the Learning VM after a while, the website may not be accessible.</p>
+
+<p>In case any of the above issues happen, and you end up with a stale IP address, run the following commands on the Learning VM to get a new IP address. (Remember, if you're ever unable to establish an SSH session, you can log in directly through the interface of your virtualization software.)</p>
+
+<p>Refresh your DHCP lease:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">service network restart
+</code></pre></div>
+<p>Find your IP address:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">facter ipaddress
+</code></pre></div>
+<a id=""><h2>Explore the lvmguide Class</h2></a>
+
+<p>To understand how the <code>lvmguide</code> class works, you can take a look under the hood. In your terminal, use the <code>cd</code> command to navigate to the module directory. (Remember, <code>cd</code> for 'change directory.')</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">cd /etc/puppetlabs/puppet/modules
+</code></pre></div>
+<p>Next, open the <code>init.pp</code> manifest.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">nano lvmguide/manifests/init.pp
+</code></pre></div>
+<div class="highlight"><pre><code class="puppet"><span class="kd">class</span> <span class="nc">lvmguide</span> <span class="p">(</span>
+  <span class="nv">$document_root</span> <span class="p">=</span> <span class="s1">'/var/www/html/lvmguide'</span><span class="p">,</span>
+  <span class="nv">$port</span>          <span class="p">=</span> <span class="s1">'80'</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span><span class="c-Singleline"></span>
+
+<span class="c-Singleline">  # Manage apache, the files for the website will be </span>
+<span class="c-Singleline">  # managed by the quest tool</span>
+  <span class="nc">class</span> <span class="p">{</span> <span class="s1">'apache'</span><span class="p">:</span>
+    <span class="nt">default_vhost</span> <span class="p">=&gt;</span> <span class="ss">false</span><span class="p">,</span>
+  <span class="p">}</span>
+  <span class="nc">apache::vhost</span> <span class="p">{</span> <span class="s1">'learning.puppetlabs.vm'</span><span class="p">:</span>
+    <span class="nt">port</span>    <span class="p">=&gt;</span> <span class="nv">$port</span><span class="p">,</span>
+    <span class="nt">docroot</span> <span class="p">=&gt;</span> <span class="nv">$document_root</span><span class="p">,</span>
+  <span class="p">}</span>
+}
+</code></pre></div>
+
+<p>(To exit out of the file, use the command <code>control-x</code> in nano, or <code>:q!</code> in vim.)</p>
+
+<p>Don't worry about understanding each detail of the syntax just yet. For now, we'll just give you a quick overview so the concepts won't be totally new when you encounter them later on. </p>
+
+<h4>Class Title and Parameters:</h4>
+
+<div class="highlight"><pre><code class="puppet"><span class="kd">class</span> <span class="nc">lvmguide</span> <span class="p">(</span>
+  <span class="nv">$document_root</span> <span class="p">=</span> <span class="s1">'/var/www/html/lvmguide'</span><span class="p">,</span>
+  <span class="nv">$port</span> <span class="p">=</span> <span class="s1">'80'</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+</code></pre></div>
+
+<p>The class <code>lvmguide</code> takes two parameters: <code>$document_root</code> and <code>$port</code>. The default values are set as <code>/var/www/html/lvmguide</code> and <code>80</code>.</p>
+
+<h4>Include the apache module's apache class:</h4>
+
+<div class="highlight"><pre><code class="puppet">  <span class="nc">class</span> <span class="p">{</span> <span class="s1">'apache'</span><span class="p">:</span> 
+    <span class="nt">default_vhost</span> <span class="p">=&gt;</span> <span class="ss">false</span><span class="p">,</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>lvmguide</code> class declares another class: <code>apache</code>. Puppet knows about the <code>apache</code> class because it is defined by the <code>apache</code> module you installed earlier. The <code>default_vhost</code> parameter for the <code>apache</code> class is set to <code>false</code>. This is all the equivalent of saying "Set up Apache, and don't use the default VirtualHost because I want to specify my own."</p>
+
+<h4>Include the apache module's vhost class:</h4>
+
+<div class="highlight"><pre><code class="puppet">  <span class="nc">apache::vhost</span> <span class="p">{</span> <span class="s1">'learning.puppetlabs.vm'</span><span class="p">:</span>
+    <span class="nt">port</span>    <span class="p">=&gt;</span> <span class="nv">$port</span><span class="p">,</span>
+    <span class="nt">docroot</span> <span class="p">=&gt;</span> <span class="nv">$document_root</span><span class="p">,</span>
+  <span class="p">}</span>
+</code></pre></div>
+
+<p>This block of code declares the <code>apache::vhost</code> class for the Quest Guide with the title <code>learning.puppetlabs.vm</code>, and with <code>$port</code> and <code>$docroot</code> set to those class parameters we saw earlier. This is the same as saying "Please set up a VirtualHost website serving the 'learning.puppetlabs.vm' website, and set the port and document root based on the parameters from above."</p>
+
+<h4>The files for the website</h4>
+
+<p>The files for the quest guide are put in place by the <code>quest</code> command line tool, and thus we don't specify anything about the files in the class. Puppet is flexible enough to help you manage just what you want to, leaving you free to use other tools where more appropriate. Thus we put together a solution using Puppet to manage a portion of it, and our <code>quest</code> tool to manage the rest.</p>
+
+<p>It may seem like there's a lot going on here, but once you have a basic understanding of the syntax, a quick read-through will be enough to get the gist of well-written Puppet code. (We often talk about Puppet's DSL as self-documenting code.)</p>
+
+<h3>Repeatable, Portable, Testable</h3>
+
+<p>It's cool to install and configure an Apache httpd web server with a few lines of code and some clicks in the console, but keep in mind that the best part can't be shown with the Learning VM: once the <code>lvmguide</code> module is installed, you can apply the <code>lvmguide</code> class to as many nodes as you like, even if they have different specifications or run different operating systems.</p>
+
+<p>And once a class is deployed to your infrastructure, Puppet gives you the ability to manage the configuration from a single central point. You can implement your updates and changes in a test environment, then easily move them into production.</p>
+
+<a id=""><h2>Updated Content</h2></a>
+
+<p>Before continuing on to the remaining quests, let's ensure that you have the most up to date version of the quest-related content. Now that we have the website configured, please run the following command:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">quest update
+</code></pre></div>
+<p>This will download an updated PDF, files for the quest guide website, as well as the tests for the quests.</p>
+
+<p>You can find a copy of the update Quest Guide PDF at: <code>http://&lt;your-vm's-ip-address&gt;/Quest_Guide.pdf</code>, or in the <code>/var/www/html/lvmguide/</code> directory on the VM.</p>
+
+<a id=""><h2>Review</h2></a>
+
+<p>Great job on completing the quest! You should now have a good idea of how to download exising modules from the Forge and use the PE Console node classifier to apply them to a node. You also learned how to use the <code>puppet agent --test</code> command to manually trigger a puppet run.</p>
+
+<p>Though we'll go over many of the details of the Puppet DSL in later quests, you had your first look at a Puppet class, and some of the elements that make it up.</p>
+            </div>
+        </div>
+        <div id="footer">
+</div>
+       
+    </div>
+    </body>
+</html>

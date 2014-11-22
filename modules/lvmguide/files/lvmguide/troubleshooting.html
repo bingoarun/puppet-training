@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Troubleshooting</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+    <div id="page" class="page">
+        <div id="site-header" role="banner">
+    <div class="header-wrapper">
+        <div class"region region-header">
+            <div id="block-boxes-test" class="block block-boxes block-boxes simple logo block-odd">
+                <div class="content">
+                    <a href="/">
+                        <img src="/assets/Puppet-Labs-Logo.png">
+                    </a>
+                </div>
+            </div>
+            <div id="block-menu_block-2" class="block block-menu-block header-primary-menu block-even">
+                <div class="content">
+                    <div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1">
+                        <ul class="menu">
+                            <li>
+                                <a href="/index.html">
+                                    Quests
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/glossary.html">
+                                    Glossary
+                                </a>
+                            <li>
+                                <a href="https://puppetlabs.com/learn" target="_blank">
+                                    Learning Resources
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://docs.puppetlabs.com" target="_blank">
+                                    Puppet Docs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="main" class="clearfix" role-"main">
+        <aside id="sidebar-first" class="column sidebar first" role="complementary">
+    <div id="sidebar-first-inner" class="inner">
+        <div class="content">
+            <h2>Quests</h2>
+            <div class="menu-block-wrapper menu-block-7 menu-name-main-menu parent-mlid-0 meni-level-2">
+                <ul class="menu">
+                    
+                        
+                            <li>
+                                <a href="/index.html">Welcome</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/power_of_puppet.html">Power of Puppet</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/resources.html">Resources</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/manifest_quest.html">Manifests</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/variables.html">Variables</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/conditions_quest.html">Conditional Statements</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/resource_ordering.html">Ordering</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/classes_quest.html">Classes</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/modules_quest.html">Modules</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/quests/puppet_module_tool_quest.html">Puppet Module Tool</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/afterword.html">Afterword</a>
+                            </li>
+                        
+                    
+                        
+                            <li class="active">
+                                <a href="/troubleshooting.html" class = "active">Troubleshooting</a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/glossary.html">Glossary</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+
+
+            <div id="content" class="clearfix" role="main">
+                <h1>Troubleshooting</h1>
+
+<p>If you have feedback or run into any issues with the Learning VM, please visit our public issue tracker or email us at learningvm@puppetlabs.com.</p>
+
+<p>Puppet Labs maintains a list of <a href="https://docs.puppetlabs.com/pe/latest/release_notes.html#known-issues">known Puppet Enterprise issues</a>.</p>
+
+<a id=""><h2>Common Issues:</h2></a>
+
+<h4>I've completed a task, but it hasn't registered in the quest tool.</h4>
+
+<p>Some tasks are verified on the presence of a specific string in a file, so a typo can prevent the task from registering as complete even if your Puppet code validates and your puppet agent run is successful. You can check the actual spec tests we use with the quest tool in the <code>~/.testing/spec/localhost</code> directory.</p>
+
+<p>While most tasks validate some change you have made to the system, there are a few that check for a specific line in your bash history. The file that tracks this history isn't created until you log out from the VM for the first time. In the setup instructions, we suggest that you log out from the VM before establishing an SSH connection. If you haven't done this, certain tasks won't register as complete. Also, because the quest tool looks for a specific command, the tasks may not register as complete if you've included a slight variation even if it has the same effect.</p>
+
+<h4>I can't access the PE Console with Safari.</h4>
+
+<p>This is a <a href="https://docs.puppetlabs.com/pe/latest/release_notes.html#safari-certificate-handling-may-prevent-console-access">known issue</a> with the way Safari handles certificates. You may encounter a dialog box prompting you to select a certificate.  If this happens, you may have to click <code>Cancel</code> several times to access the console. This issue will be fixed in a future release of PE.</p>
+
+<h4>The Learning VM cannot complete a Puppet run, or does so very slowly.</h4>
+
+<p>It's likely that you haven't assigned enough memory or processor cores to the Learning VM, or that your host system doesn't have the available resources to allocate. Power down the VM and increase the processor cores to 2 and the memory to 4 GB. You may also need to close other processes running on the host machine to free up resources.</p>
+            </div>
+        </div>
+        <div id="footer">
+</div>
+       
+    </div>
+    </body>
+</html>
